@@ -22,10 +22,10 @@ export default function App() {
   //   </SafeAreaView>
   // );
   return (
-    <View style={styles.container}>
-      <ButtonComponent dir = 'gauche'/>
-      <ButtonComponent dir = 'droite'/>
-    </View>
+      <View style={styles.container}>
+        <ButtonComponent dir='gauche' />
+        <ButtonComponent dir='droite' />
+      </View>   
 
   );
 }
