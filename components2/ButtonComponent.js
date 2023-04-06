@@ -1,39 +1,41 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
-const styles = StyleSheet.create({
+const ButtonComponent = () => {
+  const handlePress = (buttonType) => {
+    console.log(`Bouton ${buttonType} cliqué !`);
+  };
+
+  return(
+    <View style={styles.container}>
+      <TouchableOpacity style={styles.button} onPress={() => handlePress('gauche')}>
+        <Text style={styles.buttonText}>Gauche</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => handlePress('Droite')}>
+        <Text style={styles.buttonText}>Droite</Text>
+      </TouchableOpacity>
+    </View>
+  );
+  };
+
+  const styles = StyleSheet.create({
     container: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        backgroundColor: '#f8f8f8',
-        borderRadius: 8,
-        margin: 8
+      flexDirection:  'row',
+      justifyContent: 'space-between',
+      paddingHorizontal: 20,
+      paddingVertical: 10,
     },
-    title: {
-        fontSize: 16,
-        fontWeight: 'bold',
+    button: {
+      backgroundColor: 'blue',
+      paddingHorizontal: 20,
+      paddingVertical: 10,
+      borderRadius: 20,
     },
-    icon: {
-        marginRight: 10,
-    },
-});
 
-const ButtonComponent = (props) => {
-    const handlePress = (buttonType) => {
-        console.log('Bouton ' + buttonType + ' cliqué !');
-    };
+    buttonText:{
+      color: 'whitesmoke',
+      fontWeight: 'bold',
+    }
+  });
 
-    return (
-        <TouchableOpacity onPress={() => handlePress(props.dir)}>
-            <View style={styles.container}>
-                <Ionicons name="md-add-circle" size={24} color="blue" style={styles.icon} />
-                <Text style={styles.title}>{props.dir}</Text>
-            </View>
-        </TouchableOpacity>
-    );
-};
-
-export default ButtonComponent;
+  export default ButtonComponent;
